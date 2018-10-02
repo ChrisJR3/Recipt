@@ -25,6 +25,7 @@ namespace NuclearPower
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string. 
 
             outputLabel.Text = "Number One is: " + sum;
             outputLabel.Text += "\nNumber Two is: " + sum;
