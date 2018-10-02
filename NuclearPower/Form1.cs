@@ -18,65 +18,27 @@ namespace NuclearPower
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SoundPlayer player = new SoundPlayer(Properties.Resources.alert);
-            player.Play();
-            
-            ReactorOne.BackColor = Color.Red;
-            ReactorTwo.BackColor = Color.Red;
-            Refresh();
-            Thread.Sleep(200);
-            EverythingIsAwesome.Text = "Everything is NOT Awesome!!!!";
-            ReactorOne.BackColor = Color.Green;
-            ReactorTwo.BackColor = Color.Green;
-            Refresh();
-            Thread.Sleep(200);
-            ReactorOne.BackColor = Color.Red;
-            ReactorTwo.BackColor = Color.Red;
-            Refresh();
-            Thread.Sleep(200);
-            ReactorOne.BackColor = Color.Green;
-            ReactorTwo.BackColor = Color.Green;
-            Refresh();
-            Thread.Sleep(200);
-            ReactorOne.BackColor = Color.Red;
-            ReactorTwo.BackColor = Color.Red;
-            Refresh();
-            Thread.Sleep(200);
-            ReactorOne.BackColor = Color.Green;
-            ReactorTwo.BackColor = Color.Green;
-            Refresh();
-            Thread.Sleep(200);
-            ReactorOne.BackColor = Color.Red;
-            ReactorTwo.BackColor = Color.Red;
-            Refresh();
-            Thread.Sleep(200);
-            ReactorOne.BackColor = Color.White;
-            ReactorTwo.BackColor = Color.White;
-            Thread.Sleep(2500);
-            Refresh();
-            EverythingIsAwesome.Text = "Everything is Awesome!!!!";
-            ReactorOne.BackColor = Color.Green;
-            ReactorTwo.BackColor = Color.Green;
-            Thread.Sleep(2500);
-            Refresh();
-        }
 
-        private void ReactorOne_Click(object sender, EventArgs e)
-        {
+            outputLabel.Text = "Number One is: " + sum;
+            outputLabel.Text += "\nNumber Two is: " + sum;
 
-        }
+            sum = numberOne + numberTwo;
+            ouputlabel.Text += "\nThe sum of numberOne and numberTwo is: " + sum;
 
-        private void Background_Load(object sender, EventArgs e)
-        {
+            taxAmount = SHIRT_Price * taxAmount;
+            totalWithTax = taxAmount + SHIRT_PRICE
 
+            outputLabel.Text += "\n";
+            outputLabel.Text += "\nShirt   :" + SHIRT_PRICE.ToString ("C") ;
+            outputLabel.Text += "\nTax   :" + taxAmount.ToString("C");
+            outputLabel.Text += "\nTotal   :" + totalWithTax.ToString("C");
         }
     }
 }
