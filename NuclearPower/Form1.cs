@@ -15,7 +15,11 @@ namespace NuclearPower
 {
     public partial class Background : Form
     {
+        //Full book list
         List<Object> books = new List<Object>();
+        //Just the reference number list
+        List<int> referenceList = new List<int>();
+
         int searchNumber;
 
         public Background()
@@ -34,15 +38,17 @@ namespace NuclearPower
 
                 Book b = new Book(referenceNumber, bookTitle);
                 books.Add(b);
+                
+                referenceList.Add(referenceNumber);
             }
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            searchNumber = Convert.ToInt32(referanceNumberTextBox.Text);
+            searchNumber = Convert.ToInt32(referenceNumberTextBox.Text);
 
             //linear search
-            Boolean linearSucess = linearSearch(books, searchNumber);
+            Boolean linearSucess = linearSearch(referenceList, searchNumber);
             if (linearSucess == true)
             {
                 linearSearchTextBox.Text = Convert.ToString(books[searchNumber]);
@@ -53,7 +59,7 @@ namespace NuclearPower
             }
 
             //binary search
-            Boolean binarySucess = binarySearch(books, searchNumber);
+            Boolean binarySucess = binarySearch(referenceList, searchNumber);
             if (binarySucess == true)
             {
                 binarySearchTextBox.Text = Convert.ToString(books[searchNumber]);
@@ -64,7 +70,7 @@ namespace NuclearPower
             }
         }
 
-        public Boolean linearSearch(List<Object> bookList, int searchNumber)
+        public Boolean linearSearch(List<int> bookList, int searchNumber)
         {
             foreach (int b in bookList)
             {
@@ -76,7 +82,7 @@ namespace NuclearPower
             return false;
         }
 
-        public Boolean binarySearch(List<Object> bookList, int searchNumber)
+        public Boolean binarySearch(List<int> bookList, int searchNumber)
         {
             int low = 0;
             int high = bookList.Count - 1;

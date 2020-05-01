@@ -32,7 +32,7 @@
             this.explanationLabel1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.referanceNumberLabel = new System.Windows.Forms.Label();
-            this.referanceNumberTextBox = new System.Windows.Forms.TextBox();
+            this.referenceNumberTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.linearSearchLabel = new System.Windows.Forms.Label();
             this.binarySearchLabel = new System.Windows.Forms.Label();
@@ -86,12 +86,12 @@
             this.referanceNumberLabel.TabIndex = 3;
             this.referanceNumberLabel.Text = "Referance #:";
             // 
-            // referanceNumberTextBox
+            // referenceNumberTextBox
             // 
-            this.referanceNumberTextBox.Location = new System.Drawing.Point(218, 172);
-            this.referanceNumberTextBox.Name = "referanceNumberTextBox";
-            this.referanceNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.referanceNumberTextBox.TabIndex = 4;
+            this.referenceNumberTextBox.Location = new System.Drawing.Point(218, 172);
+            this.referenceNumberTextBox.Name = "referenceNumberTextBox";
+            this.referenceNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.referenceNumberTextBox.TabIndex = 4;
             // 
             // searchButton
             // 
@@ -168,7 +168,7 @@
             this.Controls.Add(this.binarySearchLabel);
             this.Controls.Add(this.linearSearchLabel);
             this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.referanceNumberTextBox);
+            this.Controls.Add(this.referenceNumberTextBox);
             this.Controls.Add(this.referanceNumberLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.explanationLabel1);
@@ -190,7 +190,7 @@
         private System.Windows.Forms.Label explanationLabel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label referanceNumberLabel;
-        private System.Windows.Forms.TextBox referanceNumberTextBox;
+        private System.Windows.Forms.TextBox referenceNumberTextBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label linearSearchLabel;
         private System.Windows.Forms.Label binarySearchLabel;
