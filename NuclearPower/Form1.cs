@@ -15,7 +15,7 @@ namespace NuclearPower
 {
     public partial class Background : Form
     {
-        List<Book> books = new List<Book>();
+        List<Object> books = new List<Object>();
 
         public Background()
         {
@@ -38,7 +38,23 @@ namespace NuclearPower
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            //linear search
+            linearSearch(books, Convert.ToInt32(referanceNumberTextBox.Text));
 
+            //binary search
+
+        }
+
+        public Boolean linearSearch(List<object> bookList, int searchNumber)
+        {
+            foreach (string s in bookList)
+            {
+                if (s == searchNumber)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
