@@ -16,9 +16,11 @@ namespace NuclearPower
     public partial class Background : Form
     {
         //Full book list
-        List<Object> books = new List<Object>();
-        //Just the reference number list
-        List<int> referenceList = new List<int>();
+        List<Book> books = new List<Book>();
+
+        //Booleans for file and help button
+        Boolean fileVisible = false;
+        Boolean helpVisible = false;
 
         int searchNumber;
 
@@ -38,8 +40,6 @@ namespace NuclearPower
 
                 Book b = new Book(referenceNumber, bookTitle);
                 books.Add(b);
-                
-                referenceList.Add(referenceNumber);
             }
         }
 
@@ -48,41 +48,37 @@ namespace NuclearPower
             searchNumber = Convert.ToInt32(referenceNumberTextBox.Text);
 
             //linear search
-            Boolean linearSucess = linearSearch(referenceList, searchNumber);
-            if (linearSucess == true)
-            {
-                linearSearchTextBox.Text = Convert.ToString(books[searchNumber]);
-            }
-            else
-            {
-                linearSearchTextBox.Text = "No book was found under that search, please try again.";
-            }
-
+            String linearSearchResult = linearSearch(books, searchNumber);
+            linearSearchTextBox.Text = linearSearchResult;
+            
             //binary search
-            Boolean binarySucess = binarySearch(referenceList, searchNumber);
-            if (binarySucess == true)
+            String binarySearchResult = binarySearch(books, searchNumber);
+            binarySearchTextBox.Text = binarySearchResult;
+
+            //confiriming the validity of the search
+            if (linearSearchTextBox.Text == binarySearchTextBox.Text)
             {
-                binarySearchTextBox.Text = Convert.ToString(books[searchNumber]);
+                validityTextBox.Text = "Search preformed successfully.";
             }
             else
             {
-                binarySearchTextBox.Text = "No book was found under that search, please try again.";
+                validityTextBox.Text = "Search preformed unsuccessfully.";
             }
         }
 
-        public Boolean linearSearch(List<int> bookList, int searchNumber)
+        public string linearSearch(List<Book> bookList, int searchNumber)
         {
-            foreach (int b in bookList)
+            foreach (Book b in bookList)
             {
-                if (b == searchNumber)
+                if (b.referenceNumber == searchNumber)
                 {
-                    return true;
+                    return b.bookTitle;
                 }
             }
-            return false;
+            return "There was no book found under that reference number, please try again.";
         }
 
-        public Boolean binarySearch(List<int> bookList, int searchNumber)
+        public string binarySearch(List<Book> bookList, int searchNumber)
         {
             int low = 0;
             int high = bookList.Count - 1;
@@ -91,11 +87,11 @@ namespace NuclearPower
             {
                 int middle = (low + high) / 2;
 
-                if (Convert.ToInt32(bookList[middle]) == searchNumber)
+                if (bookList[middle].referenceNumber == searchNumber)
                 {
-                    return true;
+                    return bookList[middle].bookTitle;
                 }
-                else if (Convert.ToInt32(bookList[middle]) < searchNumber)
+                else if (bookList[middle].referenceNumber < searchNumber)
                 {
                     low = middle + 1;
                 }
@@ -104,7 +100,41 @@ namespace NuclearPower
                     high = middle - 1;
                 }
             }
-            return false;
+            return "There was no book found under that reference number, please try again.";
+        }
+
+        private void fileButton_Click(object sender, EventArgs e)
+        {
+            helpLabel.Visible = false;
+            helpVisible = false;
+
+            if (fileVisible == false)
+            {
+                fileLabel.Visible = true;
+                fileVisible = true;
+            }
+            else
+            {
+                fileLabel.Visible = false;
+                fileVisible = false;
+            }
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            fileLabel.Visible = false;
+            fileVisible = false;
+
+            if (helpVisible == false)
+            {
+                helpLabel.Visible = true;
+                helpVisible = true;
+            }
+            else
+            {
+                helpLabel.Visible = false;
+                helpVisible = false;
+            }
         }
     }
 }

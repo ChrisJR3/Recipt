@@ -85,7 +85,7 @@
             this.referanceNumberLabel.Name = "referanceNumberLabel";
             this.referanceNumberLabel.Size = new System.Drawing.Size(148, 25);
             this.referanceNumberLabel.TabIndex = 3;
-            this.referanceNumberLabel.Text = "Referance #:";
+            this.referanceNumberLabel.Text = "Reference #:";
             // 
             // referenceNumberTextBox
             // 
