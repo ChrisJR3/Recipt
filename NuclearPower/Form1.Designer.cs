@@ -40,6 +40,7 @@
             this.linearSearchTextBox = new System.Windows.Forms.TextBox();
             this.outputTextBox = new System.Windows.Forms.TextBox();
             this.underlineLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -158,6 +159,17 @@
             this.underlineLabel.TabIndex = 11;
             this.underlineLabel.Text = "________________________________";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(-6, -8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(559, 34);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "________________________________";
+            // 
             // Background
             // 
             this.BackColor = System.Drawing.Color.Black;
@@ -174,6 +186,7 @@
             this.Controls.Add(this.explanationLabel1);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.underlineLabel);
+            this.Controls.Add(this.label2);
             this.Name = "Background";
             this.Load += new System.EventHandler(this.Background_Load);
             this.ResumeLayout(false);
@@ -198,6 +211,7 @@
         private System.Windows.Forms.TextBox linearSearchTextBox;
         private System.Windows.Forms.TextBox outputTextBox;
         private System.Windows.Forms.Label underlineLabel;
+        private System.Windows.Forms.Label label2;
     }
 }
 
