@@ -16,6 +16,7 @@ namespace NuclearPower
     public partial class Background : Form
     {
         List<Object> books = new List<Object>();
+        int searchNumber;
 
         public Background()
         {
@@ -38,20 +39,63 @@ namespace NuclearPower
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            searchNumber = Convert.ToInt32(referanceNumberTextBox.Text);
+
             //linear search
-            linearSearch(books, Convert.ToInt32(referanceNumberTextBox.Text));
+            Boolean linearSucess = linearSearch(books, searchNumber);
+            if (linearSucess == true)
+            {
+                linearSearchTextBox.Text = Convert.ToString(books[searchNumber]);
+            }
+            else
+            {
+                linearSearchTextBox.Text = "No book was found under that search, please try again.";
+            }
 
             //binary search
-
+            Boolean binarySucess = binarySearch(books, searchNumber);
+            if (binarySucess == true)
+            {
+                binarySearchTextBox.Text = Convert.ToString(books[searchNumber]);
+            }
+            else
+            {
+                binarySearchTextBox.Text = "No book was found under that search, please try again.";
+            }
         }
 
-        public Boolean linearSearch(List<object> bookList, int searchNumber)
+        public Boolean linearSearch(List<Object> bookList, int searchNumber)
         {
-            foreach (string s in bookList)
+            foreach (int b in bookList)
             {
-                if (s == searchNumber)
+                if (b == searchNumber)
                 {
                     return true;
+                }
+            }
+            return false;
+        }
+
+        public Boolean binarySearch(List<Object> bookList, int searchNumber)
+        {
+            int low = 0;
+            int high = bookList.Count - 1;
+
+            while (high >= low)
+            {
+                int middle = (low + high) / 2;
+
+                if (Convert.ToInt32(bookList[middle]) == searchNumber)
+                {
+                    return true;
+                }
+                else if (Convert.ToInt32(bookList[middle]) < searchNumber)
+                {
+                    low = middle + 1;
+                }
+                else
+                {
+                    high = middle - 1;
                 }
             }
             return false;
